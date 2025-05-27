@@ -1,0 +1,20 @@
+{
+	"name": "inputdataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Customer_Input.txt",
+				"folderPath": "Input",
+				"container": "niteshcontainer1"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

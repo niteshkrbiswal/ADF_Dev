@@ -1,0 +1,54 @@
+{
+	"name": "Execute pipeline from another",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline2",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"usernamefromdataset": {
+							"value": "@pipeline().parameters.usernamefromdataset",
+							"type": "Expression"
+						},
+						"db_dataset": {
+							"value": "@pipeline().parameters.db_dataset",
+							"type": "Expression"
+						},
+						"table_fromdataset": {
+							"value": "@pipeline().parameters.table_fromdataset",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"usernamefromdataset": {
+				"type": "string"
+			},
+			"db_dataset": {
+				"type": "string"
+			},
+			"table_fromdataset": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-05-26T13:23:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

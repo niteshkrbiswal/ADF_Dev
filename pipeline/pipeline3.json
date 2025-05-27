@@ -1,0 +1,116 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "sp_sales",
+					"storedProcedureParameters": {
+						"max_amount": {
+							"value": {
+								"value": "@pipeline().parameters.sp_variable",
+								"type": "Expression"
+							},
+							"type": "Double"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"Username": {
+							"value": "@pipeline().parameters.username",
+							"type": "Expression"
+						},
+						"dbname": {
+							"value": "@pipeline().parameters.db",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Stored procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "sp_sales",
+						"storedProcedureParameters": {
+							"max_amount": {
+								"type": "Double",
+								"value": {
+									"value": "@pipeline().parameters.sp_variable",
+									"type": "Expression"
+								}
+							}
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"username": {
+								"value": "@pipeline().parameters.username",
+								"type": "Expression"
+							},
+							"dbname": {
+								"value": "@pipeline().parameters.db",
+								"type": "Expression"
+							},
+							"tablename": "dbo.sales"
+						}
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"parameters": {
+			"username": {
+				"type": "string"
+			},
+			"db": {
+				"type": "string"
+			},
+			"sp_variable": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Transformation"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-05-26T13:47:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "Storge_events",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "SetVariable",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"FileTypeFlag": "@triggerBody.fileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/niteshcontainer1/blobs/Input",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/a94d8be0-ea8c-4a40-ad21-b55367889808/resourceGroups/NiteshRG1/providers/Microsoft.Storage/storageAccounts/niteshstorage2",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

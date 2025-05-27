@@ -1,0 +1,30 @@
+{
+	"name": "Tumbling1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "pipeline2",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"usernamefromdataset": "nitesh",
+				"db_dataset": "APMIS",
+				"table_fromdataset": "sales"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 5,
+			"startTime": "2025-05-23T18:23:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}

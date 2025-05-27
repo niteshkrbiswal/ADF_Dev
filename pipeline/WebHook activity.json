@@ -1,0 +1,25 @@
+{
+	"name": "WebHook activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "WebHook1",
+				"type": "WebHook",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "www.logic.app.url",
+					"method": "POST",
+					"timeout": "00:10:00"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-05-27T08:32:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

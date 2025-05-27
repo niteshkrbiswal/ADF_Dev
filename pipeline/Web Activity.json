@@ -1,0 +1,98 @@
+{
+	"name": "Web Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web_GET",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://dummy.restapiexample.com/api/v1/employees"
+				}
+			},
+			{
+				"name": "Web_POST",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"url": "https://dummy.restapiexample.com/api/v1/create",
+					"body": {
+						"name": "test",
+						"salary": "123",
+						"age": "23"
+					}
+				}
+			},
+			{
+				"name": "Web_PUT",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "PUT",
+					"url": "https://dummy.restapiexample.com/api/v1/update/21",
+					"body": {
+						"name": "test",
+						"salary": "123",
+						"age": "2"
+					}
+				}
+			},
+			{
+				"name": "Web_DELETE",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "DELETE",
+					"url": "https://dummy.restapiexample.com/api/v1/delete/2",
+					"body": ""
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-05-27T08:02:28Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

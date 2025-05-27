@@ -1,0 +1,36 @@
+{
+	"name": "AppendVariable",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ParameterFile",
+					"value": {
+						"value": "@string(contains(pipeline().parameters.FileName, 'Hourly'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"ParameterFile": {
+				"type": "Array"
+			}
+		},
+		"folder": {
+			"name": "ControlFlow"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-05-26T13:23:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "Tumbling",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2025-05-23T17:46:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
