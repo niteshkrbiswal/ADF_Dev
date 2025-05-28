@@ -1,5 +1,13 @@
 {
 	"name": "niteshdf1",
+	"properties": {
+		"globalParameters": {
+			"OutputDirPath": {
+				"type": "string",
+				"value": "niteshcontainer1/output"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
