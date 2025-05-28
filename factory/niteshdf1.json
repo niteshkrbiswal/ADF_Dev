@@ -5,6 +5,10 @@
 			"OutputDirPath": {
 				"type": "string",
 				"value": "niteshcontainer1/output"
+			},
+			"InputDirPath": {
+				"type": "string",
+				"value": "niteshcontainer1/Input"
 			}
 		}
 	},
