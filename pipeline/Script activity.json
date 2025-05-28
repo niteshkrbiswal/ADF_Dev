@@ -1,0 +1,63 @@
+{
+	"name": "Script activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"Username": {
+							"value": "@pipeline().parameters.username",
+							"type": "Expression"
+						},
+						"dbname": {
+							"value": "@pipeline().parameters.dbname",
+							"type": "Expression"
+						}
+					}
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"parameters": [
+								{
+									"name": "name",
+									"type": "String",
+									"value": "Nitesh",
+									"direction": "Input"
+								}
+							],
+							"type": "NonQuery",
+							"text": "select * from sales"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00",
+					"logSettings": {
+						"logDestination": "ActivityOutput"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"username": {
+				"type": "string"
+			},
+			"dbname": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
