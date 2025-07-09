@@ -1,0 +1,19 @@
+{
+	"name": "WebsiteDownloadOutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "download2.xls",
+				"folderPath": "websitedata",
+				"fileSystem": "niteshcontainer1"
+			}
+		}
+	}
+}

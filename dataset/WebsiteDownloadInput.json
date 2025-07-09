@@ -1,0 +1,17 @@
+{
+	"name": "WebsiteDownloadInput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "/data/files/EE/E3/A1/59/6266F610BB8E41E6894D49A8/LFT_2019.xls"
+			}
+		}
+	}
+}
